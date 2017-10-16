@@ -70,6 +70,14 @@ class ListVideoController < ApplicationController
         videodescription = params[:video][:description]
       end
       videoaddress = params[:video][:address]
+      
+      # Check if "videoaddress" is an embedded youtube url or not
+      # If not, convert it to an embedded one
+      if !videoaddress.include?("embed")
+        # if "videoaddress" is not an embedded url, then
+        videoaddress = videoaddress.sub("/watch?v=", "/embed/")
+      end
+      
       videotypes = params[:video][:checkedtype]
       
       # When the new video has only a new type
