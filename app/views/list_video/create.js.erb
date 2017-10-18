@@ -4,4 +4,15 @@ $('#flexcontent004').html('<%= escape_javascript render partial: 'vids/vid', :co
 
 $('#flexcontent002').html('<%= escape_javascript render partial: 'types/type', :collection => @types, :locals => {}  %>');
 $('#flexcontent003').html('<%= escape_javascript render partial: 'typesexceptalls/typesexceptall', :collection => @typesexceptalls, :locals => {}  %>');
-$('#exampleModalLong').modal('hide')
+
+
+$('#closebutton').click()
+
+var is_it_successful= '<%= @is_it_successful %>';
+var notification_message='<%= @notification_message %>';
+
+if (is_it_successful == 'true') {
+    $('.form-control').val("");
+}
+
+alert(notification_message);
